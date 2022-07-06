@@ -1,23 +1,10 @@
-import gql from 'graphql-tag'
+import gql from "graphql-tag";
 
 export default gql`
-  mutation($name: String! $when: String! $where: String! $description: String!) {
-    createEvent(
-      name: $name
-      when: $when
-      where: $where
-      description: $description
-    ) {
+  mutation($id: String!, $item: String!) {
+    createItemsModel(id: $id, item: $item) {
       id
-      name
-      where
-      when
-      description
-      comments {
-        items {
-          commentId
-        }
-      }
+      item
     }
   }
-`
+`;
