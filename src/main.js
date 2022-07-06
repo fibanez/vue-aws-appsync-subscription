@@ -5,16 +5,25 @@ import VueApollo from "vue-apollo";
 import awsAppSyncClient from "aws-appsync";
 
 const el = "#app";
-const defaultClient = new awsAppSyncClient({
+
+const config = {
   url: "appsyncire.mc1.expo.academy/graphql",
   region: "eu-west-1",
   auth: {
-    type: "AWS_LAMBDA",
+    type: "LAMBDA",
     jwtToken: "1"
   }
-});
+};
+const options = {
+  defaultOptions: {
+    watchQuery: {
+      fetchPolicy: "cache-and-network"
+    }
+  }
+};
+const client = new awsAppSyncClient(config, options);
 
-const appsyncProvider = new VueApollo({ defaultClient });
+const appsyncProvider = new VueApollo({ defaultClient: client });
 const provide = appsyncProvider.provide();
 const template = "<App/>";
 const components = { App };
