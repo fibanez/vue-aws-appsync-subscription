@@ -3,7 +3,6 @@
     <div v-if="!hydrated">Loading...</div>
 
     <div v-if="hydrated">
-      <img src="./assets/logo.png" />
       <router-view />
     </div>
   </div>
@@ -13,7 +12,6 @@
 export default {
   name: "App",
   data: () => ({ hydrated: false }),
-
   async mounted() {
     const { defaultClient } = this.$apollo.provider;
     this.hydrated = await defaultClient.hydrated().then(() => true);
