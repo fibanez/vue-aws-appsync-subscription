@@ -12,13 +12,13 @@
 
 <script>
 export default {
-  name: "HelloWorld",
-  data() {
+  name: 'HelloWorld',
+  data () {
     return {
-      msg: "AppSync Items",
-    };
-  },
-};
+      msg: 'AppSync Items'
+    }
+  }
+}
 </script>
 
 <style scoped>

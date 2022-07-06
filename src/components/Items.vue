@@ -6,17 +6,17 @@
 </template>
 
 <script>
-import listItemsModel from "@/queries/listItemsModel";
-import oncreateEvent from "@/subscription/oncreateEvent";
+import listItemsModel from '@/queries/listItemsModel'
+import oncreateEvent from '@/subscription/oncreateEvent'
 
 export default {
-  name: "Items",
+  name: 'Items',
 
-  data() {
+  data () {
     return {
-      msg: "All Items",
-      items: [],
-    };
+      msg: 'All Items',
+      items: []
+    }
   },
 
   apollo: {
@@ -30,24 +30,24 @@ export default {
             previous,
             {
               subscriptionData: {
-                data: { oncreateEvent },
-              },
+                data: { oncreateEvent }
+              }
             }
           ) => {
-            console.log(oncreateEvent);
+            console.log(oncreateEvent)
 
             const listItemsModel = {
               ...previous.listEvents,
-              items: [oncreateEvent].concat(previous.listItemsModel.items),
-            };
+              items: [oncreateEvent].concat(previous.listItemsModel.items)
+            }
 
-            return { listItemsModel };
-          },
-        },
-      ],
-    },
-  },
-};
+            return { listItemsModel }
+          }
+        }
+      ]
+    }
+  }
+}
 </script>
 
 <style scoped>

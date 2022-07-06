@@ -10,13 +10,13 @@
 
 <script>
 export default {
-  name: "App",
+  name: 'App',
   data: () => ({ hydrated: false }),
-  async mounted() {
-    const { defaultClient } = this.$apollo.provider;
-    this.hydrated = await defaultClient.hydrated().then(() => true);
-  },
-};
+  async mounted () {
+    const { defaultClient } = this.$apollo.provider
+    this.hydrated = await defaultClient.hydrated().then(() => true)
+  }
+}
 </script>
 
 <style>
